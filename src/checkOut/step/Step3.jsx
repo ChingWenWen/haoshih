@@ -26,7 +26,7 @@ const Step3 = () => {
   }, []);
 
   const handleNextStep = () => {
-    const isSuccess = Math.random() < 0.5; // 50% 的成功率
+    const isSuccess = "success";
     const status = isSuccess ? "success" : "failed";
     const url = `/step4?${queryString.stringify({ status })}`;
     window.location.href = url;
