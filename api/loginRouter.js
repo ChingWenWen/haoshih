@@ -411,7 +411,7 @@ passport.use(new GoogleStrategy({
             return cb(new Error('Google 信箱失敗'));
         }
 
-        const userType = req.session.googleAuthUserType || 'member';
+        const userType = req.session.googleAuthUserType;
         const table = userType === 'member' ? 'member' : 'vendor';
         const idField = userType === 'member' ? 'uid' : 'vid';
 
