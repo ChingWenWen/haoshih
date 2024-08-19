@@ -425,11 +425,10 @@ passport.use(new GoogleStrategy({
             } else {
                 // 創建新用戶
                 const newUser = {
-                    account: email,
+                    account: email.split('@')[0],
                     email: email,
                     first_name: profile.name.givenName || '',
                     last_name: profile.name.familyName || '',
-                    password: '12345678', // 考慮使用更安全的方法來設置初始密碼
                 };
 
                 conn.query(`INSERT INTO ${table} SET ?`, newUser, (err, result) => {
@@ -487,8 +486,8 @@ loginRouter.get('/auth/google', (req, res, next) => {
 loginRouter.get('/auth/google/callback',
     passport.authenticate('google', { failureRedirect: 'http://localhost:3000/login?error=google_auth_failed' }),
     function (req, res) {
-        console.log('123');
-        console.log('User data:', req.user);
+        // console.log('123');
+        // console.log('User data:', req.user);
 
         if (!req.user) {
             console.log('沒有任何資料');
