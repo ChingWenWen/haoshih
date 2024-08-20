@@ -12,11 +12,10 @@ const NavBarShop = ({ cartVisible }) => {
 
   useEffect(() => {
     // 檢查 localStorage 是否存在指定的 key
-    const user = JSON.parse(localStorage.getItem("user"));
-    console.log("User data from localStorage:", user);
+    // const user = JSON.parse(localStorage.getItem("user"));
+    // console.log("User data from localStorage:", user);
     if (user) {
       setShowLogin(true);
-      
     } else {
       setShowLogin(false);
     }
@@ -41,14 +40,14 @@ const NavBarShop = ({ cartVisible }) => {
 
   const doLogout = async () => {
     try {
-      await axios.get('http://localhost:3200/login/logout');
-      localStorage.removeItem('user');
+      await axios.get("http://localhost:3200/login/logout");
+      localStorage.removeItem("user");
       setShowLogin(false);
-      window.location.href = '/shop';
+      window.location.href = "/shop";
     } catch (error) {
-      console.error('登出失敗', error);
+      console.error("登出失敗", error);
     }
-  }
+  };
   // console.log(productsData);
   // console.log(Object.keys(productsData).length);
   return (
@@ -78,8 +77,10 @@ const NavBarShop = ({ cartVisible }) => {
               >
                 <div
                   id="123"
-                  style={{ display: user.userType === "member" ? "visible" : "none" }}
-                // style={{ display: "none" }}
+                  style={{
+                    display: user.userType === "member" ? "visible" : "none",
+                  }}
+                  // style={{ display: "none" }}
                 >
                   <a
                     className="position-relative text-decoration-none link-dark"
@@ -99,7 +100,7 @@ const NavBarShop = ({ cartVisible }) => {
                   // href="http://localhost:3000/vendor/1"
                 >
                   <div className="hover-c-primary fw-bold">
-                    {(user.nickname || user.brand_name)+",  你好 !"}
+                    {(user.nickname || user.brand_name) + ",  你好 !"}
                   </div>
                 </a>
                 /
@@ -111,7 +112,7 @@ const NavBarShop = ({ cartVisible }) => {
                 </div>
               </div>
             ) : (
-              <Link to="/login" style={{ textDecoration: 'none' }}>
+              <Link to="/login" style={{ textDecoration: "none" }}>
                 <div className={`hover:bg-secondary px-4 ${styles.mallBtn}`}>
                   登入
                 </div>

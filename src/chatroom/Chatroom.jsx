@@ -31,16 +31,18 @@ const Chatroom = () => {
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState("");
   const [showStickers, setShowStickers] = useState(false);
-  const [username] = useState(
-    "使用者" + Math.floor(Math.random() * 1000) + ":"
-  );
   const [userColor] = useState(
     colors[Math.floor(Math.random() * colors.length)]
   );
+
   const messagesEndRef = useRef(null);
   const fileInputRef = useRef(null);
   const chatContainerRef = useRef(null);
+
   const cartVisible = 1;
+
+  const user = JSON.parse(localStorage.getItem("user"));
+  const username = user.nickname || user.brand_name;
 
   useEffect(() => {
     axios

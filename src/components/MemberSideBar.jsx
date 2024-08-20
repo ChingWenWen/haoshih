@@ -2,9 +2,9 @@ import styles from "./MemberSideBar.module.scss";
 const user = JSON.parse(localStorage.getItem("user"));
 
 const MemberSideBar = () => {
-  const user = JSON.parse(localStorage.getItem("user"));
-  console.log(user);
-  
+  // const user = JSON.parse(localStorage.getItem("user"));
+  // console.log(user);
+
   return (
     <>
       <div className="p-3 d-flex flex-column align-items-center font-special ">
