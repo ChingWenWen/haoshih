@@ -37,6 +37,7 @@ const SetStalls = () => {
   const submitRentInfo = async (season, selectedVendors, user) => {
     if (selectedVendors.length <= 0) {
       Swal.fire({
+        confirmButtonColor: '#96dbc9',
         icon: "warning",
         title: "尚未選擇任何攤位",
       });

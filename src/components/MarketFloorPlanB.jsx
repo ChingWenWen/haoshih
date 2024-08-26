@@ -4,7 +4,7 @@ import styles from "./MarketFloorPlanB.module.scss";
 
 
 const MarketFloorPlan = ({fetchData, season_data, selectedPeriod}) => {
-  const [selectedStalls, setSelectedStalls] = useState(new Set());
+  const [selectedStalls, setSelectedStalls] = useState(new Set()); 
   const [lastClickedElement, setLastClickedElement] = useState(null);
   console.log(season_data);
   const getBoothClass = (booth) => {
